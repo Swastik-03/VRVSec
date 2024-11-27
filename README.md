@@ -3,6 +3,8 @@
 
 This project implements a simple Role-Based Access Control (RBAC) system with a **User Management**, **Role Management**, **Permission Management**, and a **Permission Matrix**. The backend is mocked using `json-server`, and the frontend is built with React. It allows users to manage roles, permissions, and the assignment of roles to users.
 
+**Deployed Link-** https://vrv-sec.vercel.app/
+
 ## Features
 - **User Management**: Add, edit, delete users, and assign roles.
 - **Role Management**: Manage roles such as Admin, User, Editor or create new roles.
