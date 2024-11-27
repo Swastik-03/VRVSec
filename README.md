@@ -36,9 +36,9 @@ Before running the frontend, you need to start the **mock backend** using `json-
 
 In the project directory, run:
 ```bash
-npx json-server --watch src/mock-server.json --port 3000
+npx json-server --watch src/mock-server.json --port 4000
 ```
-This will start the mock backend at `http://localhost:3000`, which will provide the data for **users**, **roles**, and **permissions**.
+This will start the mock backend at `http://localhost:4000`, which will provide the data for **users**, **roles**, and **permissions**.
 
 - `mock-server.json` contains mock data for users, roles, and permissions.
 
@@ -48,11 +48,11 @@ Now that the mock backend is running, you can start the frontend. In a new termi
 ```bash
 npm start
 ```
-This will start the frontend at `http://localhost:3001` (or another port if `3001` is already in use). The frontend will fetch data from the backend (running at `http://localhost:3000`).
+This will start the frontend at `http://localhost:3000` (or another port if `3000` is already in use). The frontend will fetch data from the backend (running at `http://localhost:4000`).
 
 ### 5. **Visit the Application**
 
-- Open a web browser and go to `http://localhost:3001` to see the RBAC system in action.
+- Open a web browser and go to `http://localhost:3000` to see the RBAC system in action.
 - The page will display a **User Management** section, **Role Management**, **Permission Matrix**, and a **Legend** for understanding the matrix icons.
 
 ## Data Structure for Mock Backend
