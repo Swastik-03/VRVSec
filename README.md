@@ -1,70 +1,133 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RBAC (Role-Based Access Control) System
 
-## Available Scripts
+This project implements a simple Role-Based Access Control (RBAC) system with a **User Management**, **Role Management**, **Permission Management**, and a **Permission Matrix**. The backend is mocked using `json-server`, and the frontend is built with React. It allows users to manage roles, permissions, and the assignment of roles to users.
 
-In the project directory, you can run:
+## Features
+- **User Management**: Add, edit, delete users, and assign roles.
+- **Role Management**: Manage roles such as Admin, User, Editor.
+- **Permission Management**: Manage permissions such as Create, Read, Update, Delete.
+- **Permission Matrix**: Visualize roles and permissions assigned to users.
+- **Mock Backend**: Using `json-server` to mock the backend for users, roles, and permissions.
 
-### `npm start`
+## Prerequisites
+To run this project, you need to have the following installed on your machine:
+- **Node.js**: Make sure you have [Node.js](https://nodejs.org/) installed (version 14.x or later).
+- **npm**: Comes with Node.js, so you should have it as well.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup Instructions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. **Clone the Repository**
+Clone this repository to your local machine:
+```bash
+git clone https://github.com/your-username/rbac-system.git
+cd rbac-system
+```
 
-### `npm test`
+### 2. **Install Dependencies**
+Run the following command to install the dependencies for the frontend:
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. **Run Mock Backend with json-server**
 
-### `npm run build`
+Before running the frontend, you need to start the **mock backend** using `json-server`. This mock backend will simulate an API to handle users, roles, and permissions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the project directory, run:
+```bash
+npx json-server --watch src/mock-server.json --port 3000
+```
+This will start the mock backend at `http://localhost:3000`, which will provide the data for **users**, **roles**, and **permissions**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `mock-server.json` contains mock data for users, roles, and permissions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. **Run Frontend**
 
-### `npm run eject`
+Now that the mock backend is running, you can start the frontend. In a new terminal window or tab, run:
+```bash
+npm start
+```
+This will start the frontend at `http://localhost:3001` (or another port if `3001` is already in use). The frontend will fetch data from the backend (running at `http://localhost:3000`).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 5. **Visit the Application**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Open a web browser and go to `http://localhost:3001` to see the RBAC system in action.
+- The page will display a **User Management** section, **Role Management**, **Permission Matrix**, and a **Legend** for understanding the matrix icons.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Data Structure for Mock Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `src/mock-server.json`
+This file contains mock data for users, roles, and permissions. Here is the structure of the mock data:
 
-## Learn More
+```json
+{
+  "users": [
+    { "id": 1, "name": "Alice", "email": "alice@example.com", "role": "Admin", "status": "Active" },
+    { "id": 2, "name": "Bob", "email": "bob@example.com", "role": "User", "status": "Inactive" }
+  ],
+  "roles": [
+    { "id": 1, "name": "Admin" },
+    { "id": 2, "name": "User" },
+    { "id": 3, "name": "Editor" }
+  ],
+  "permissions": [
+    { "id": 1, "name": "Create" },
+    { "id": 2, "name": "Read" },
+    { "id": 3, "name": "Update" },
+    { "id": 4, "name": "Delete" }
+  ]
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Users**: List of users with `id`, `name`, `email`, `role`, and `status`.
+- **Roles**: List of roles like `Admin`, `User`, `Editor`.
+- **Permissions**: List of permissions like `Create`, `Read`, `Update`, `Delete`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Key Features and Components
 
-### Code Splitting
+### 1. **User Management**:
+   - Users can be created, updated, or deleted.
+   - Each user is assigned a role (e.g., Admin, User).
+   - The user's role and status are displayed in the User Management section.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 2. **Role Management**:
+   - Roles are predefined (Admin, User, Editor).
+   - Roles are assigned to users when creating or editing them.
 
-### Analyzing the Bundle Size
+### 3. **Permission Management**:
+   - Permissions are defined for each role (e.g., Create, Read, Update, Delete).
+   - Permissions are displayed in the **Permission Matrix**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 4. **Permission Matrix**:
+   - The **Permission Matrix** visualizes which users have which roles and permissions.
+   - The matrix displays a `Check` mark if the user has the role or permission and an `X` mark if they don't.
 
-### Making a Progressive Web App
+### 5. **Mock Backend**:
+   - The backend is mocked using `json-server`, which handles the CRUD operations for users, roles, and permissions.
+   - The data is stored in `src/mock-server.json`, and the backend is accessible via `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Example Screenshots
 
-### Advanced Configuration
+- **User-Role Matrix**: A table showing which users are assigned which roles.
+- **Role-Permission Matrix**: A table showing which roles have which permissions.
+- **Permission Matrix Legend**: A section explaining the meaning of the icons used in the matrices.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Extending the System
 
-### Deployment
+This system can be extended by adding the following features:
+- **Dynamic Permission Assignment**: Allow roles to have dynamically assignable permissions.
+- **Role Editing**: Allow roles to be added, edited, or deleted.
+- **Logging and Audit**: Keep track of user actions and role changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+If you would like to contribute to this project, please fork the repository, make your changes, and submit a pull request. Feel free to open issues for bug reports or feature requests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Enjoy managing your users, roles, and permissions with ease!
