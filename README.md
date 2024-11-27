@@ -20,8 +20,8 @@ To run this project, you need to have the following installed on your machine:
 ### 1. **Clone the Repository**
 Clone this repository to your local machine:
 ```bash
-git clone https://github.com/your-username/rbac-system.git
-cd rbac-system
+https://github.com/Swastik-03/VRVSec.git
+cd VRVSec
 ```
 
 ### 2. **Install Dependencies**
