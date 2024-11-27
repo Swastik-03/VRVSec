@@ -84,7 +84,7 @@ export default function PermissionMatrix() {
                     </td>
                     {permissions.map((permission) => (
                       <td key={permission.id} className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                        {role.permissions?.includes(permission.id) ? (
+                        {role.permissions?.includes(permission.name) ? (
                           <CheckIcon className="w-5 h-5 text-green-500 mx-auto" aria-label="Has permission" />
                         ) : (
                           <XIcon className="w-5 h-5 text-red-500 mx-auto" aria-label="No permission" />
