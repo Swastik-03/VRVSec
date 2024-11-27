@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "email": "alice1@example.com",
+      "role": "Admin",
+      "status": "Active"
+    },
+    {
+      "id": "2",
+      "name": "Bob",
+      "email": "bob@example.com",
+      "role": "Viewer",
+      "status": "Inactive"
+    },
+    {
+      "id": "ac64",
+      "name": "Raja",
+      "email": "R@gmail.com",
+      "role": "Editor",
+      "status": "Active"
+    },
+    {
+      "id": "503f",
+      "status": "Inactive",
+      "name": "Swastik",
+      "email": "S@gmail.com",
+      "role": "Viewer"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "permissions": [
+        "Read",
+        "Write",
+        "Delete"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Editor",
+      "permissions": [
+        "Read",
+        "Write"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Viewer",
+      "permissions": [
+        "Read"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "1",
+      "name": "Read",
+      "description": "Allows read access to resources."
+    },
+    {
+      "id": "2",
+      "name": "Write",
+      "description": "Allows write access to resources."
+    },
+    {
+      "id": "3",
+      "name": "Delete",
+      "description": "Allows deletion of resources."
+    }
+  ]
+}
