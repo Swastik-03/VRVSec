@@ -5,8 +5,8 @@ This project implements a simple Role-Based Access Control (RBAC) system with a 
 
 ## Features
 - **User Management**: Add, edit, delete users, and assign roles.
-- **Role Management**: Manage roles such as Admin, User, Editor.
-- **Permission Management**: Manage permissions such as Create, Read, Update, Delete.
+- **Role Management**: Manage roles such as Admin, User, Editor or create new roles.
+- **Permission Management**: Manage permissions such as Create, Read, Update, Delete or create new permission.
 - **Permission Matrix**: Visualize roles and permissions assigned to users.
 - **Mock Backend**: Using `json-server` to mock the backend for users, roles, and permissions.
 
@@ -93,10 +93,15 @@ This file contains mock data for users, roles, and permissions. Here is the stru
 
 ### 2. **Role Management**:
    - Roles are predefined (Admin, User, Editor).
+   - New Roles can be created as per requirements.
+   - Roles have dynamically assignable permissions
+   - Roles can be added, edited, or deleted.
+   - Roles can be deleted on condition that it is not assigned to any user.
    - Roles are assigned to users when creating or editing them.
 
 ### 3. **Permission Management**:
    - Permissions are defined for each role (e.g., Create, Read, Update, Delete).
+   - New Permissions can be created based on requirements.
    - Permissions are displayed in the **Permission Matrix**.
 
 ### 4. **Permission Matrix**:
@@ -113,21 +118,8 @@ This file contains mock data for users, roles, and permissions. Here is the stru
 - **Role-Permission Matrix**: A table showing which roles have which permissions.
 - **Permission Matrix Legend**: A section explaining the meaning of the icons used in the matrices.
 
-## Extending the System
-
-This system can be extended by adding the following features:
-- **Dynamic Permission Assignment**: Allow roles to have dynamically assignable permissions.
-- **Role Editing**: Allow roles to be added, edited, or deleted.
-- **Logging and Audit**: Keep track of user actions and role changes.
-
-## Contributing
-
-If you would like to contribute to this project, please fork the repository, make your changes, and submit a pull request. Feel free to open issues for bug reports or feature requests.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-Enjoy managing your users, roles, and permissions with ease!
